@@ -1,0 +1,17 @@
+@import "variables";
+
+@mixin a_no_decoration() {
+    text-decoration: none;
+    color: $color-font;
+}
+
+@mixin tablet {
+  @media (max-width: (768px)) {
+    @content;
+  }
+}
+@mixin smartphone {
+  @media (max-width: (480px)) {
+    @content;
+  }
+}

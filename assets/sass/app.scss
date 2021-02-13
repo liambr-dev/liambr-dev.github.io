@@ -1,0 +1,311 @@
+@import "variables";
+@import "mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: $color-background;
+    font-family: YuGothic, "ヒラギノ角ゴ ProN W3", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+    color: $color-font;
+    letter-spacing: .2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    flex: 1 auto;
+
+    @include smartphone() {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @include tablet() {
+        align-items: center;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    @include smartphone() {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.inner-container {
+    width: 70%;
+    height: 100%;
+    max-width: 1024px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include smartphone() {
+        width: 100%;
+    }
+
+    @include tablet() {
+        width: 90%;
+    }
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include smartphone() {
+        justify-content: initial;
+    }
+
+    @include tablet() {
+        //justify-content: center;
+        align-items: center;
+    }
+}
+
+.background {
+    width: 700px;
+    height: 700px;
+
+    position: absolute;
+    top: -120px;
+    left: -120px;
+
+    @include smartphone() {
+        width: 250px;
+        height: 250px;
+        top: -50px;
+        left: -50px;
+    }
+
+    background: $color-background;
+    border-radius: 100%;
+    border: 8px solid $color-primary;
+    z-index: -1;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+}
+
+.link-list, .twitter-container {
+    list-style: none;
+    width: 380px;
+    margin: 0 0 0 auto;
+
+    @include smartphone() {
+        width: 100%;
+        margin: 0;
+    }
+
+    @include tablet() {
+        width: 500px;
+        max-width: 80%;
+        margin: 0;
+    }
+
+    li {
+        a {
+            background: $color-background;
+            @include a_no_decoration();
+
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+            border: 1px solid $color-border;
+            border-radius: 14px;
+            padding: 12px;
+            flex: 1 50%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            transition: .25s ease-in-out;
+
+            &:hover {
+                background: $color-background-hover;
+                transform: translateY(-4px);
+            }
+
+            &:last-child() {
+                margin-bottom: 0;
+            }
+
+            .icon {
+                width: 62px;
+                height: 62px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-right: 12px;
+            }
+
+            .item-infos {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .item-title {
+                border-bottom: 1px solid $color-border;
+                height: 50%;
+                font-weight: bold;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .item-detail {
+                height: 50%;
+                font-size: .75em;
+                letter-spacing: .05em;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.link-on-bottom {
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    max-width: 420px;
+    max-height: 80px;
+    margin-top: 20px;
+
+    @include smartphone() {
+        width: 80%;
+    }
+}
+
+.twitter-timeline {
+    margin-bottom: 70px !important;
+}
+
+.link-headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background: $color-twitter;
+    padding: 10px 1.25rem 10px 1.25rem;
+    //text-transform: uppercase;
+    font-size: 1.45em;
+
+    @include a_no_decoration();
+    color: white;
+    font-weight: bold;
+    letter-spacing: .15rem;
+
+    i {
+        margin-right: 4px;
+    }
+}
+
+.img-fit {
+    width: 22px;
+    height: 22px;
+}
+
+header {
+    background: transparent;
+    width: 100%;
+    height: $height-header;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    nav {
+        width: fit-content;
+        height: 100%;
+
+        ul {
+            width: 100%;
+            height: 100%;
+            list-style: none;
+
+            li {
+                width: 100%;
+                height: 100%;
+                margin-right: 20px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    @include a_no_decoration();
+
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 13px;
+                    transition: .2s ease;
+                    padding: 0 16px 0 16px;
+
+                    &:hover {
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.primary-title {
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: .15em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-right-decoration {
+    &::before {
+        content: "";
+        display: block;
+        background: transparent;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-top: 50px solid transparent;
+        border-right: 50px solid $color-primary;
+        border-bottom: 50px solid $color-primary;
+        border-left: 50px solid transparent;
+    }
+}
