@@ -309,3 +309,82 @@ header {
         border-left: 50px solid transparent;
     }
 }
+
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+
+    @include smartphone() {
+        max-width: 90%;
+        width: 90%;
+    }
+}
+
+.achievement-title {
+    $_border_height: 2px;
+
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    position: relative;
+    padding: 4px 2rem;
+    border-bottom: $_border_height solid $color-primary;
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: -$_border_height;
+        left: 0;
+        width: 20%;
+        height: $_border_height;
+        background: lighten($color-primary, 5%);
+    }
+}
+
+.achievement-list {
+    $_border_style: 4px dotted $color-primary;
+    
+    > * {
+        padding-bottom: 10px;
+        border-bottom: $_border_style;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.icon-external-link {
+    margin-left: 4px;
+    font-size: .55em;
+}
+
+.back-button {
+    $_size: 44px;
+    width: $_size;
+    height: $_size;
+
+    position: fixed;
+    top: 12px;
+    left: 12px;
+
+    border-radius: 50%;
+    border: 1px solid transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &:hover {
+        background: $color-background-hover;
+        border: 1px solid lighten($color-primary, 5%);
+        box-shadow: 0 0 0 .2rem rgba($color-primary, .25);
+    }
+}

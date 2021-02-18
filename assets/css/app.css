@@ -204,7 +204,7 @@ main {
 }
 
 .link-list li a:hover, .twitter-container li a:hover {
-  background: rgba(240, 240, 240, 0.635);
+  background: #f0f0f0;
   -webkit-transform: translateY(-4px);
           transform: translateY(-4px);
 }
@@ -406,5 +406,97 @@ header nav ul li a:hover {
   border-right: 50px solid violet;
   border-bottom: 50px solid violet;
   border-left: 50px solid transparent;
+}
+
+.achievements-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 450px;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 480px) {
+  .achievements-container {
+    max-width: 90%;
+    width: 90%;
+  }
+}
+
+.achievement-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 4px 2rem;
+  border-bottom: 2px solid violet;
+}
+
+.achievement-title:before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 20%;
+  height: 2px;
+  background: #f198f1;
+}
+
+.achievement-list > * {
+  padding-bottom: 10px;
+  border-bottom: 4px dotted violet;
+}
+
+.achievement-list > *:last-child {
+  border-bottom: none;
+}
+
+.icon-external-link {
+  margin-left: 4px;
+  font-size: .55em;
+}
+
+.back-button {
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+  border: 1px solid #f198f1;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(238, 130, 238, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(238, 130, 238, 0.25);
 }
 /*# sourceMappingURL=app.css.map */
